@@ -1,8 +1,6 @@
 package org.example.lista;
 
-import java.util.Comparator;
-
-abstract class Lista <T> implements Comparator<T> {
+abstract class Lista <T extends Comparable>{
 
   public abstract void adicionar(T elemento); //1
 
@@ -28,12 +26,4 @@ abstract class Lista <T> implements Comparator<T> {
 
   public abstract void  listarElementos();//8
 
-
-
- @Override
- public int compare(T o1, T o2) {
-
-
-  return 0;
- }
 }

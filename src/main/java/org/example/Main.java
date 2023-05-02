@@ -2,13 +2,15 @@ package org.example;
 
 import org.example.lista.ListaEncadeada;
 import org.example.lista.Menu;
+import org.example.lista.Numeros;
 
+import java.util.Collections;
 import java.util.Scanner;
 
 public class Main {
     public static void main(String[] args) {
 
-        ListaEncadeada <Integer> listaEncadeada= new ListaEncadeada<>();
+        ListaEncadeada <Integer> listaEncadeada= new ListaEncadeada<Integer>();
         Menu menu= new Menu();
         Scanner leia= new Scanner(System.in);
         int op;
@@ -90,9 +92,9 @@ public class Main {
                     listaEncadeada.limpar();
                 }
                 case 0 ->{
-                    listaEncadeada.listarElementos();
                     condicao=true;
                 }
+
 
 
                 default -> {

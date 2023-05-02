@@ -1,25 +1,20 @@
 package org.example.lista;
 
-
-public class ListaEncadeada<T> extends Lista<T>{
+public class ListaEncadeada<T extends Comparable<T>> extends Lista<T>  {
 
     private  No <T> primeiro;
     private No <T> ultimo;
-
     private int tamanho;
 
     public  ListaEncadeada (){
         this.tamanho=0;
     }
-
     public No<T> getPrimeiro() {
         return primeiro;
     }
-
     public No<T> getUltimo() {
         return ultimo;
     }
-
     @Override
     public void adicionar(T elemento){
 
@@ -31,14 +26,13 @@ public class ListaEncadeada<T> extends Lista<T>{
                 this.ultimo=novoElemento;
             }
             else{
+
                 this.ultimo.setProximo(novoElemento);
                 this.ultimo=novoElemento;
             }
 
             this.tamanho++;
-
     }
-
     @Override
     public void adicionarInicio(T elemento){
 
@@ -51,8 +45,6 @@ public class ListaEncadeada<T> extends Lista<T>{
         this.tamanho++;
 
     }
-
-
     @Override
     public void adicionarComPosicao(T elemento, int posicao) {
 
@@ -81,15 +73,8 @@ public class ListaEncadeada<T> extends Lista<T>{
 
         }
 
-
-
-//
-//        System.out.println("Atual: "+atual.getElemento());
-//        System.out.println("Anteriro: "+anterior.getElemento());
         tamanho++;
-
     }
-
     @Override
     public T get(int posicao) {
         return null;
@@ -114,17 +99,8 @@ public class ListaEncadeada<T> extends Lista<T>{
             }else{
                 System.out.println(atual);
             }
-
-
-
-
         }
-
-
     }
-
-
-
     @Override
     public Integer getPosElemento(T elemento){
 
@@ -146,9 +122,7 @@ public class ListaEncadeada<T> extends Lista<T>{
         }
 
         return count;
-
     }
-
     @Override
     public void remover(int posicao){
 
@@ -174,16 +148,13 @@ public class ListaEncadeada<T> extends Lista<T>{
                 if (i== posicao-2){
                     anterior=atual;
                 }
-
-
             }
 
             anterior.setProximo(atual.getProximo());
             tamanho--;
+
         }
-
     }
-
     @Override
     public void limpar() {
 
@@ -191,36 +162,26 @@ public class ListaEncadeada<T> extends Lista<T>{
         this.ultimo=null;
         this.tamanho=0;
 
-
     }
-
     @Override
     public int getTamanho() {
         return tamanho;
     }
-
     @Override
-    public boolean contem(T elemento)  {
+    public boolean contem(T elemento) {
 
+        No<T> atual = this.primeiro;
 
-        No <T> atual= this.primeiro;
+        for (int i = 0; i < this.tamanho; i++) {
 
-
-
-        for (int i = 0; i <this.tamanho ; i++) {
-
-            if (elemento.equals(atual.getElemento())){
+            if (elemento.equals(atual.getElemento())) {
                 return true;
             }
-            atual=atual.getProximo();
+            atual = atual.getProximo();
         }
 
         return false;
 
     }
 
-    @Override
-    public int compare(T o1, T o2) {
-        return super.compare(o1, o2);
-    }
 }
